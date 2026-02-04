@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Map – Inky Vibes Tattoo</title>
+  <style>
+    :root{--radius:16px;--shadow:0 18px 45px rgba(0,0,0,.25)}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:#fff}
+    .wrap{max-width:980px;margin:0 auto;padding:18px}
+    .map-card{
+      position:relative;
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background:#000;
+    }
+    .map{
+      width:100%;
+      height:420px;
+      border:0;
+      display:block;
+      filter:saturate(1.05) contrast(1.02);
+    }
+    /* overlay title card */
+    .overlay{
+      position:absolute;
+      left:16px;
+      top:16px;
+      background:rgba(0,0,0,.75);
+      color:#fff;
+      border-radius:14px;
+      padding:14px 16px;
+      min-width:260px;
+      max-width:calc(100% - 32px);
+      backdrop-filter: blur(8px);
+    }
+    .overlay h3{
+      margin:0 0 6px;
+      font-size:22px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .overlay a{
+      color:#66a3ff;
+      text-decoration:none;
+      font-weight:700;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+    }
+    .overlay a:hover{opacity:.9}
+    .pin{
+      width:18px;height:18px;display:inline-block
+    }
+
+    @media (max-width:520px){
+      .map{height:360px}
+      .overlay{left:12px;top:12px;padding:12px 14px}
+      .overlay h3{font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="map-card">
+      <!-- Your overlay -->
+      <div class="overlay" aria-label="Inky Vibes Tattoo location">
+        <h3>Inky Vibes Tattoo</h3>
+        <a href="https://www.google.com/maps/place/Inky+Vibes+Tattoo,+Keskikatu+13,+45100+Kouvola,+Finlandiya/@60.868616,26.705737,15z/data=!4m6!3m5!1s0x4691b39ed920d2d9:0xb1594d066ec57b1a!8m2!3d60.8686155!4d26.7057374!16s%2Fg%2F11rq8gs5jm?entry=ml&utm_campaign=ml-p&coh=230964&g_ep=Eg1tbF8yMDI2MDEyOF8xIOC7DCoASAJQAg%3D%3D"
+           target="_blank" rel="noopener">
+          <svg class="pin" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z" fill="white" opacity=".9"/>
+            <circle cx="12" cy="10" r="2.6" fill="black" opacity=".55"/>
+          </svg>
+          Open in Google Maps
+        </a>
+      </div>
+
+      <!-- Google Maps Embed -->
+      <!-- IMPORTANT: This embed uses a standard query embed. Works without API key. -->
+      <iframe
+        class="map"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Inky%20Vibes%20Tattoo%20Keskikatu%2013%2045100%20Kouvola%20Finland&output=embed">
+      </iframe>
+    </div>
+  </div>
+</body>
+</html>
