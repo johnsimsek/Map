@@ -25,48 +25,60 @@
     /* overlay title card */
     .overlay{
       position:absolute;
+      z-index:10;
       left:16px;
       top:16px;
       background:rgba(0,0,0,.75);
       color:#fff;
-      border-radius:14px;
-      padding:14px 16px;
-      min-width:260px;
+      border-radius:12px;
+      padding:10px 14px;
+      min-width:200px;
       max-width:calc(100% - 32px);
       backdrop-filter: blur(8px);
+      pointer-events: none;
     }
     .overlay h3{
-      margin:0 0 6px;
-      font-size:22px;
+      margin:0 0 2px;
+      font-size:18px;
       font-weight:800;
       letter-spacing:.2px;
+    }
+    .overlay p.address {
+      margin: 0 0 8px 0;
+      font-size: 13px;
+      color: #e0e0e0;
     }
     .overlay a{
       color:#66a3ff;
       text-decoration:none;
+      font-size: 14px;
       font-weight:700;
       display:inline-flex;
-      gap:8px;
+      gap:6px;
       align-items:center;
+      pointer-events: auto;
     }
     .overlay a:hover{opacity:.9}
     .pin{
-      width:18px;height:18px;display:inline-block
+      width:16px;height:16px;display:inline-block
     }
 
     @media (max-width:520px){
       .map{height:360px}
-      .overlay{left:12px;top:12px;padding:12px 14px}
-      .overlay h3{font-size:20px}
+      .overlay{left:12px;top:12px;padding:8px 12px; min-width:180px;}
+      .overlay h3{font-size:16px}
+      .overlay p.address {font-size: 12px; margin-bottom: 6px;}
+      .overlay a{font-size: 13px;}
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="map-card">
-      <!-- Your overlay -->
       <div class="overlay" aria-label="Inky Vibes Tattoo location">
         <h3>Inky Vibes Tattoo</h3>
+        <p class="address">Keskikatu 13, 45100 Kouvola (Sokoksen takapihalla)</p>
+        
         <a href="https://www.google.com/maps/place/Inky+Vibes+Tattoo,+Keskikatu+13,+45100+Kouvola,+Finlandiya/@60.868616,26.705737,15z/data=!4m6!3m5!1s0x4691b39ed920d2d9:0xb1594d066ec57b1a!8m2!3d60.8686155!4d26.7057374!16s%2Fg%2F11rq8gs5jm?entry=ml&utm_campaign=ml-p&coh=230964&g_ep=Eg1tbF8yMDI2MDEyOF8xIOC7DCoASAJQAg%3D%3D"
            target="_blank" rel="noopener">
           <svg class="pin" viewBox="0 0 24 24" fill="none">
@@ -77,8 +89,6 @@
         </a>
       </div>
 
-      <!-- Google Maps Embed -->
-      <!-- IMPORTANT: This embed uses a standard query embed. Works without API key. -->
       <iframe
         class="map"
         loading="lazy"
