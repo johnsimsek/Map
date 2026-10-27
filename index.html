@@ -48,8 +48,9 @@
       font-size: 11px;
       color: #e0e0e0;
     }
+    
+    /* Metallic Text Link with slow shine pulse */
     .overlay a{
-      color:#4ade80; /* Changed from #66a3ff to bright green */
       text-decoration:none;
       font-size: 13px;
       font-weight:700;
@@ -57,8 +58,20 @@
       gap:6px;
       align-items:center;
       pointer-events: auto;
+      
+      background: linear-gradient(110deg, #b8b8b8 10%, #ffffff 30%, #757575 50%, #ffffff 70%, #b8b8b8 90%);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shine 8s linear infinite; /* Slower 8-second pulse */
     }
     .overlay a:hover{opacity:.9}
+    
+    @keyframes shine {
+      to { background-position: 200% center; }
+    }
+
     .pin{
       width:16px;height:16px;display:inline-block
     }
@@ -82,7 +95,19 @@
         <a href="https://www.google.com/maps/place/Inky+Vibes+Tattoo,+Keskikatu+13,+45100+Kouvola,+Finlandiya/@60.868616,26.705737,15z/data=!4m6!3m5!1s0x4691b39ed920d2d9:0xb1594d066ec57b1a!8m2!3d60.8686155!4d26.7057374!16s%2Fg%2F11rq8gs5jm?entry=ml&utm_campaign=ml-p&coh=230964&g_ep=Eg1tbF8yMDI2MDEyOF8xIOC7DCoASAJQAg%3D%3D"
            target="_blank" rel="noopener">
           <svg class="pin" viewBox="0 0 24 24" fill="none">
-            <path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z" fill="#4ade80" opacity=".9"/> <!-- Matched pin color to text -->
+            <defs>
+              <!-- Metallic Gradient for the SVG Pin -->
+              <linearGradient id="metallicGrad" x1="0%" y1="0%" x2="200%" y2="0%">
+                <stop offset="10%" stop-color="#b8b8b8" />
+                <stop offset="30%" stop-color="#ffffff" />
+                <stop offset="50%" stop-color="#757575" />
+                <stop offset="70%" stop-color="#ffffff" />
+                <stop offset="90%" stop-color="#b8b8b8" />
+                <animate attributeName="x1" from="0%" to="-200%" dur="8s" repeatCount="indefinite" />
+                <animate attributeName="x2" from="200%" to="0%" dur="8s" repeatCount="indefinite" />
+              </linearGradient>
+            </defs>
+            <path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z" fill="url(#metallicGrad)" opacity=".9"/>
             <circle cx="12" cy="10" r="2.6" fill="black" opacity=".55"/>
           </svg>
           Open in Google Maps
