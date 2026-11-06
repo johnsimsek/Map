@@ -17,42 +17,43 @@
     }
     .map{
       width:100%;
-      height:320px;
+      height:200px;
       border:0;
       display:block;
       filter:saturate(1.05) contrast(1.02);
     }
+    
     /* overlay title card */
     .overlay{
       position:absolute;
       z-index:10;
-      left:12px;
-      top:12px;
+      left:10px; /* Slightly tighter spacing from edge */
+      top:10px;
       background:rgba(0,0,0,.75);
       color:#fff;
-      border-radius:8px;
-      padding:8px 12px;
-      min-width:160px;
-      max-width:calc(100% - 24px);
+      border-radius:6px; /* Slightly smaller radius */
+      padding:6px 10px; /* Reduced padding */
+      max-width: 200px; /* Forces the box to be narrower and wraps text */
       backdrop-filter: blur(8px);
       pointer-events: none;
     }
     .overlay h3{
       margin:0 0 2px;
-      font-size:13px;
+      font-size:11px; /* Reduced font size */
       font-weight:800;
       letter-spacing:.2px;
     }
     .overlay p.address {
-      margin: 0 0 5px 0;
-      font-size: 10px;
+      margin: 0 0 4px 0;
+      font-size: 9px; /* Reduced font size */
       color: #e0e0e0;
+      line-height: 1.2;
     }
     
     /* Metallic Text Link with slow shine pulse */
     .overlay a{
       text-decoration:none;
-      font-size: 11px;
+      font-size: 9.5px; /* Reduced font size */
       font-weight:700;
       display:inline-flex;
       gap:4px;
@@ -73,16 +74,17 @@
     }
 
     .pin{
-      width:14px;height:14px;display:inline-block
+      width:12px;height:12px;display:inline-block
     }
 
+    /* Mobile adjustments */
     @media (max-width:520px){
-      .map{height:280px}
-      .overlay{left:10px;top:10px;padding:6px 10px; min-width:140px;}
-      .overlay h3{font-size:12px}
-      .overlay p.address {font-size: 9px; margin-bottom: 4px;}
-      .overlay a{font-size: 10px;}
-      .pin{width:12px;height:12px}
+      .map{height:180px}
+      .overlay{left:8px;top:8px;padding:5px 8px; max-width: 170px;} /* Even smaller for mobile */
+      .overlay h3{font-size:10px}
+      .overlay p.address {font-size: 8px; margin-bottom: 3px;}
+      .overlay a{font-size: 9px;}
+      .pin{width:10px;height:10px}
     }
   </style>
 </head>
